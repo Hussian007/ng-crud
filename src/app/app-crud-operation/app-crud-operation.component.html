@@ -20,11 +20,30 @@
       <button (click)="create()">Create</button>
 </div>
 
-<div *ngFor="let item of items">
+<!-- <div *ngFor="let item of items">
   Name: {{item.name}}
   Age: {{item.age}}
   <button (click)="update(item)">Update</button>
   <button (click)="delete(item)">Delete</button>
+</div> -->
+
+
+<div class="list-group users-list">
+  <div *ngFor="let item of items" class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="row">
+      <div class="col col-md-2 image-col ">
+        <img class="image" [src]="item.imagePath">
+      </div>
+      <div class="col col-md-7 text-col">
+        <h5 class="mb-1"><!-- {{item.payload.doc.data().name}} --> {{item.name}}</h5>
+        <small class="text-danger">Age: {{item.age}}</small>
+      </div>
+      <div class="col col-md-3 actions-col">
+       <button  style="margin-bottom: 5px; background:#4478ac; color: #fff; border:none; border-radius: 10px;" (click)="update(item)"> Update</button>
+        <button style="margin-bottom: 5px; background:red; color: #fff; border:none; border-radius: 10px;"  (click)="delete(item)">Delete</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div *ngIf="isToUpdate">

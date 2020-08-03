@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 
+import { finalize } from 'rxjs/operators';
+
+
 @Component({
   selector: 'app-app-crud-operation',
   templateUrl: './app-crud-operation.component.html',
@@ -13,12 +16,14 @@ export class AppCrudOperationComponent implements OnInit {
   public itemToUpdate: any;
   public createField: boolean;
   public name: string;
+  public imagePath: string;
   public age: number;
   public currentFilePath: any;
 
   constructor(
     private database: AngularFirestore,
-    private fireStorage: AngularFireStorage
+    private fireStorage: AngularFireStorage,
+    private storage:AngularFireStorage
   ) {}
 
   ngOnInit(): void {
@@ -45,6 +50,7 @@ export class AppCrudOperationComponent implements OnInit {
     this.database.collection(`Employees`).add({
       name: this.name,
       age: this.age,
+      imagePath: this.imagePath,
     });
     this.name = '';
     this.age = undefined;
@@ -73,11 +79,28 @@ export class AppCrudOperationComponent implements OnInit {
   }
 
   uploadImage() {
-    this.fireStorage.upload(
-      '/Employees' + Math.random() + this.currentFilePath.name,
+    
+
+        var filePath = 'Employees' + Math.random() + this.currentFilePath.name;
+
+     const fileRef = this.storage.ref(filePath)
+    this.fireStorage.upload(filePath,
       this.currentFilePath
-    ).snapshotChanges().subscribe(result => {
-      console.log(result);
-    })
+    ).snapshotChanges().pipe(
+             
+             finalize(()=>{
+              fileRef.getDownloadURL().subscribe((url)=>{
+
+              this.imagePath=url;
+
+              console.log(this.imagePath)
+
+              })
+             })
+           ).subscribe(result => {
+                console.log(result);
+              })
+    
+
   }
 }

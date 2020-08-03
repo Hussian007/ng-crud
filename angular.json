@@ -29,7 +29,8 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
-              "src/styles.scss"
+              "src/styles.scss",
+              
             ],
             "scripts": []
           },
@@ -122,6 +123,46 @@
             "production": {
               "devServerTarget": "test-crud:serve:production"
             }
+          }
+        }
+      }
+    },
+    "test-lib": {
+      "projectType": "library",
+      "root": "projects/test-lib",
+      "sourceRoot": "projects/test-lib/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/test-lib/tsconfig.lib.json",
+            "project": "projects/test-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/test-lib/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/test-lib/src/test.ts",
+            "tsConfig": "projects/test-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/test-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/test-lib/tsconfig.lib.json",
+              "projects/test-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
