@@ -1,0 +1,44 @@
+<!-- <app-upload></app-upload> -->
+<button (click)="add()">Add</button>
+<div *ngIf="createField ">
+    <form class="example-form">
+      <label for="Image">Image File</label>
+      <input type="file" (change)="upload($event)">
+      <button (click)="uploadImage()">Upload Image</button>
+      <!-- <img *ngIf="currentFilePath" src="currentFilePath">
+      <input type="file" multiple=false (change)="importImages($event)"> -->
+        <mat-form-field class="example-full-width">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Enter Name" name="name" type="text" [(ngModel)]="name">
+        </mat-form-field>
+      
+        <mat-form-field class="example-full-width">
+          <mat-label>Age</mat-label>
+          <input matInput placeholder="Enter Age" name="age" type="number" [(ngModel)]="age">
+        </mat-form-field>
+      </form>
+      <button (click)="create()">Create</button>
+</div>
+
+<div *ngFor="let item of items">
+  Name: {{item.name}}
+  Age: {{item.age}}
+  <button (click)="update(item)">Update</button>
+  <button (click)="delete(item)">Delete</button>
+</div>
+
+<div *ngIf="isToUpdate">
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Enter Name" name="name" [(ngModel)]="itemToUpdate.name">
+        </mat-form-field>
+      
+        <mat-form-field class="example-full-width">
+          <mat-label>Age</mat-label>
+          <input matInput placeholder="Enter Age" name="age" [(ngModel)]="itemToUpdate.age">
+        </mat-form-field>
+      </form>
+      <button (click)="submit()">Submit</button>
+</div>
+
