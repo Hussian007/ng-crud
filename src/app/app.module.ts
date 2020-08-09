@@ -18,9 +18,12 @@ import { AppCrudOperationComponent } from './app-crud-operation/app-crud-operati
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UploadComponent } from './upload/upload.component';
 import { environment } from 'src/environments/environment';
+<<<<<<< HEAD
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
+=======
+>>>>>>> f7c8cd5c89be9468a46c1cf583adb5330cd8c72d
 
 @NgModule({
   declarations: [
