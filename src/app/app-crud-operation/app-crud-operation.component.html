@@ -1,5 +1,9 @@
 <!-- <app-upload></app-upload> -->
 <button (click)="add()">Add</button>
+<mat-divider></mat-divider>
+
+<i class="fab fa-accessible-icon"></i>
+
 <div *ngIf="createField ">
     <form class="example-form">
       <label for="Image">Image File</label>
@@ -48,6 +52,9 @@
 
 <div *ngIf="isToUpdate">
     <form class="example-form">
+      <div class="col col-md-2 image-col ">
+        <img class="image" [src]="itemToUpdate.imagePath">
+      </div>
         <mat-form-field class="example-full-width">
           <mat-label>Name</mat-label>
           <input matInput placeholder="Enter Name" name="name" [(ngModel)]="itemToUpdate.name">
