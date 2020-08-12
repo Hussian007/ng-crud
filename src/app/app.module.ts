@@ -19,10 +19,24 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UploadComponent } from './upload/upload.component';
 import { environment } from 'src/environments/environment';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+//import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 import { MatSliderModule } from '@angular/material/slider';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatDividerModule} from '@angular/material/divider';
+
+
+//header
+// import { MatButtonModule } from  '@angular/material';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { ToolbarMainContainerComponent } from './toolbar-main-container/toolbar-main-container.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+import { ContactComponent } from './contact/contact.component';
+import { CreatecontactComponent } from './createcontact/createcontact.component';
+import { HomeComponent } from './home/home.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -31,7 +45,12 @@ import {MatDividerModule} from '@angular/material/divider';
   declarations: [
     AppComponent,
     AppCrudOperationComponent,
-    UploadComponent
+    UploadComponent,
+    ToolbarMainContainerComponent,
+    ContactComponent,
+    CreatecontactComponent,
+    HomeComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -47,8 +66,16 @@ import {MatDividerModule} from '@angular/material/divider';
     MatMenuModule,
     MatIconModule,
     NgbModule,
-    FontAwesomeModule,
-    MatDividerModule
+    //FontAwesomeModule,
+    MatDividerModule,
+    MatSliderModule,
+    //toolbar
+    MatButtonModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+  
+      
   ],
   providers: [],
   bootstrap: [AppComponent]

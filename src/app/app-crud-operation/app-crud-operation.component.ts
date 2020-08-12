@@ -59,6 +59,8 @@ export class AppCrudOperationComponent implements OnInit {
   update(item) {
     this.itemToUpdate = item;
     this.isToUpdate = true;
+    this.imagePath =  item.imagePath;
+
   }
   item;
 
@@ -66,6 +68,7 @@ export class AppCrudOperationComponent implements OnInit {
     this.database.doc(`Employees/${this.itemToUpdate.id}`).update({
       name: this.itemToUpdate.name,
       age: this.itemToUpdate.age,
+      imagePath: this.imagePath,
     });
   }
 
@@ -79,6 +82,8 @@ export class AppCrudOperationComponent implements OnInit {
   }
 
   uploadImage() {
+
+  
     
 
         var filePath = 'Employees' + Math.random() + this.currentFilePath.name;

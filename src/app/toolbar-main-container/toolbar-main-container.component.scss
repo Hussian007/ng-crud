@@ -1,0 +1,45 @@
+.menu-spacer{
+    flex: 1 1 auto;
+}
+
+
+.menu-item {display: block;}
+.toggle-menu {display: none;}
+
+@media screen and (max-width: 768px) {
+
+ 
+    .toggle-menu {display: block;}
+    .menu-item {display: none;}
+
+}
+.is-active{
+    color:red;
+}
+
+.app-toolbar {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0; 
+    z-index: 1000;
+    box-shadow: 0px 0 12px 0px;
+
+}
+
+a{
+    text-decoration: none;
+}
+.btn-enquiry{
+    animation:blinkingText 1.2s infinite;
+    background: #800000;
+    color: #fff;
+    border-radius: 10px;
+}
+@keyframes blinkingText{
+    0%{     color: #fff;    }
+    49%{    color: #fff; }
+    60%{    color: #006e44; }
+    99%{    color:#006e44;  }
+    100%{   color: #fff;    }
+}
+

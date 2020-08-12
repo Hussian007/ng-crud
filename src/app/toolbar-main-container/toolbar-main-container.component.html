@@ -1,0 +1,132 @@
+
+<mat-toolbar color="" class="app-toolbar">
+    <mat-toolbar-row>
+      <button mat-icon-button class="toggle-menu">
+        <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+      </button>
+
+     <a mat-button [routerLink]="'/home'" [routerLinkActive]="['is-active']">
+         <img src="https://www.dpsnacharam.in/wp-content/uploads/2019/11/DPS-Logo.png" style="max-width: 100%;">
+      </a>
+      <span class="menu-spacer"></span>
+      <div class="menu-item">
+        <a mat-button [routerLink]="'/home'" [routerLinkActive]="['is-active']">Home</a>
+
+        <a mat-button [routerLink]="'/about-us'" [routerLinkActive]="['is-active']"> About Us </a>
+        <a mat-button [routerLinkActive]="['is-active']"> 
+          <span mat-list-item [matMenuTriggerFor]="admissionDropDown">ADMISSION</span>
+            <mat-menu #admissionDropDown="matMenu" yPosition="below" class="mat-list-wrapper">
+              <span mat-menu-item>Prospectus</span>
+              <span mat-menu-item>Enquiry</span>
+              <span mat-menu-item>Admission Process</span>
+              <span mat-menu-item>Admission For class IX & X</span>
+              <span mat-menu-item>Transfer Certificate</span>
+              <span mat-menu-item>FAQ’S</span>
+
+            </mat-menu>
+        </a>
+
+
+
+        <a mat-button  [routerLinkActive]="['is-active']"> 
+           
+          <span mat-button [matMenuTriggerFor]="ServicesDropDown">SERVICES</span>
+
+          <mat-menu #ServicesDropDown="matMenu" yPosition="below" class="mat-list-wrapper">
+            <span mat-menu-item>Career Guidence & Counseling</span>
+            <span mat-menu-item>E-library & Library</span>
+            <span mat-menu-item>Magazine</span>
+            <span mat-menu-item>Laboratory & Library</span>
+            <span mat-menu-item>Transport</span>
+            <span mat-menu-item>Hostel</span>
+
+          </mat-menu>
+        
+        
+        
+        </a>
+        <a mat-button  [routerLinkActive]="['is-active']"> 
+        
+        <span mat-button [matMenuTriggerFor]="GalleryDropDown">GALLERY</span>
+
+        <mat-menu #GalleryDropDown="matMenu" yPosition="below" class="mat-list-wrapper">
+          <span mat-menu-item>Photo Gallery</span>
+          <span mat-menu-item>Video Gallery</span>
+        </mat-menu>
+        
+        </a>
+       
+        <a mat-button  [routerLinkActive]="['is-active']">Notice Board </a>
+        <a mat-button [routerLinkActive]="['is-active']"> Contact US </a>
+
+        <a mat-button [routerLinkActive]="['is-active']">Student Login</a>
+
+        <a mat-button [routerLinkActive]="['is-active']" class="btn-enquiry"> Admission Enquiry </a>
+        
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav>
+      <mat-nav-list>
+  
+        <a mat-list-item [routerLink]="'/about-us'" [routerLinkActive]="['is-active']"> About Us </a>
+        <a mat-list-item [routerLinkActive]="['is-active']"> 
+          <span mat-button [matMenuTriggerFor]="admissionDropDown">ADMISSION</span>
+            <mat-menu #admissionDropDown="matMenu" yPosition="below">
+              <span mat-menu-item>Prospectus</span>
+              <span mat-menu-item>Enquiry</span>
+              <span mat-menu-item>Admission Process</span>
+              <span mat-menu-item>Admission For class IX & X</span>
+              <span mat-menu-item>Transfer Certificate</span>
+              <span mat-menu-item>FAQ’S</span>
+
+            </mat-menu>
+        </a>
+
+
+
+        <a mat-list-item  [routerLinkActive]="['is-active']"> 
+           
+          <span mat-list-item [matMenuTriggerFor]="ServicesDropDown">SERVICES</span>
+
+          <mat-menu #ServicesDropDown="matMenu" yPosition="below">
+            <span mat-menu-item>Career Guidence & Counseling</span>
+            <span mat-menu-item>E-library & Library</span>
+            <span mat-menu-item>Magazine</span>
+            <span mat-menu-item>Laboratory & Library</span>
+            <span mat-menu-item>Transport</span>
+            <span mat-menu-item>Hostel</span>
+
+          </mat-menu>
+        
+        
+        
+        </a>
+        <a mat-list-item [routerLinkActive]="['is-active']"> 
+        
+        <span mat-list-item [matMenuTriggerFor]="GalleryDropDown">GALLERY</span>
+
+        <mat-menu #GalleryDropDown="matMenu" yPosition="below">
+          <span mat-menu-item>Photo Gallery</span>
+          <span mat-menu-item>Video Gallery</span>
+        </mat-menu>
+        
+        </a>
+       
+        <a mat-list-item [routerLinkActive]="['is-active']">Notice Board </a>
+
+        <a mat-list-item [routerLinkActive]="['is-active']">Student Login</a>
+        <a mat-list-item [routerLinkActive]="['is-active']"> Contact US </a>
+  
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div style="height: 88vh;">
+        <!-- <app-app-crud-operation></app-app-crud-operation> -->
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
